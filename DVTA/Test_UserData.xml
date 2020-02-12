@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <item>
+    <name>Test1</name>
+    <price>1</price>
+    <date>1970-01-01</date>
+    <time>15:30</time>
+  </item>
+  <item>
+    <name>Test2</name>
+    <price>2</price>
+    <date>1970-01-01</date>
+    <time>15:31</time>
+  </item>
+</data>

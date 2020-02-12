@@ -1,0 +1,6 @@
+D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\bin\Debug\ClientDataHandling.dll
+D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\bin\Debug\ClientDataHandling.pdb
+D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\obj\Debug\ClientDataHandling.csproj.CoreCompileInputs.cache
+D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\obj\Debug\ClientDataHandling.dll
+D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\obj\Debug\ClientDataHandling.pdb
+D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\obj\Debug\ClientDataHandling.csprojAssemblyReference.cache

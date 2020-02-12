@@ -1,0 +1,27 @@
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA CTF Client.csprojAssemblyReference.cache
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA.addExpenses.resources
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA.Login.resources
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA.Register.resources
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA.Main.resources
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA.Properties.Resources.resources
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA CTF Client.csproj.GenerateResource.cache
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA CTF Client.csproj.CoreCompileInputs.cache
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Release\DVTA CTF Client.exe.config
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Release\DVTA CTF Client.exe
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Release\DVTA CTF Client.pdb
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Release\ClientDataHandling.dll
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Release\EntityFramework.dll
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Release\ExcelLibrary.dll
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Release\ClientDataHandling.pdb
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Release\EntityFramework.xml
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA CTF Client.csproj.CopyComplete
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA CTF Client.exe
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\obj\Release\DVTA CTF Client.pdb
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\DVTA CTF Client.exe.config
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\DVTA CTF Client.exe
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\DVTA CTF Client.pdb
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\ClientDataHandling.dll
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\EntityFramework.dll
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\ExcelLibrary.dll
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\ClientDataHandling.pdb
+D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\EntityFramework.xml

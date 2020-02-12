@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <clienthash>VeryComplexClientHash</clienthash>
+  <users>
+    <user>
+      <id>0</id>
+      <isAdmin>0</isAdmin>
+      <username>testuser</username>
+      <hash>A94A8FE5CCB19BA61C4C0873D391E987982FBBD3</hash><!--Password is test. Remove this comment, otherwise the program will not work.-->
+    </user>
+  </users>
+</data>
