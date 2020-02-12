@@ -19,9 +19,10 @@ namespace DVTA
 {
     public partial class Main : Form
     {
-        // These 2 will hold the crucial data in memory.
+        // These will hold the crucial data in memory.
         public static XmlDocument users = new XmlDocument();
         public static XmlDocument userData = new XmlDocument();
+        public static string clientHash = "";
         public static bool isAdmin = false;
         public static string loggedInUser = "";
         public static string serverAddress = ConfigurationManager.AppSettings["SERVERADDRESS"].ToString();
@@ -41,8 +42,15 @@ namespace DVTA
 
             if(isAdmin)
             {
-                this.btnDlAdminClient.Visible = true;
-                this.btnDlAdminClient.Enabled = true;
+                this.AdminToolsLabel.Visible = true;
+                this.AdminToolsLabel.Enabled = true;
+
+                this.btnTestDBConn.Visible = true;
+                this.btnTestDBConn.Enabled = true;
+                this.btnBackupFiles.Visible = true;
+                this.btnBackupFiles.Enabled = true;
+                this.btnCheckLogs.Visible = true;
+                this.btnCheckLogs.Enabled = true;
             }
         }
 
@@ -68,7 +76,7 @@ namespace DVTA
             {
                 ClientConnect.UploadUserXML(serverAddress, serverPort, userData, loggedInUser);
             }
-            catch (System.Net.Sockets.SocketException secex)
+            catch (System.Net.Sockets.SocketException)
             {
                 MessageBox.Show("Could not connect to the server!\nThe changes will only be saved locally!", "Error!");
             }
@@ -93,7 +101,7 @@ namespace DVTA
             {
                 MessageBox.Show("Username: " + loggedInUser + "\n" + "Email ID: " + ClientConnect.ViewProfile(serverAddress, serverPort, loggedInUser));
             }
-            catch (System.Net.Sockets.SocketException socex)
+            catch (System.Net.Sockets.SocketException)
             {
                 MessageBox.Show("Could not connect to the server!", "Error!");
             }
@@ -150,9 +158,12 @@ namespace DVTA
             dataGridView1.DataSource = expenseSet.Tables["item"];
         }
 
-        private void btnDlAdminClient_Click(object sender, EventArgs e)
+        private void btnTestDBConn_Click(object sender, EventArgs e)
         {
-            try
+            TestDB testDB = new TestDB();
+            testDB.ShowDialog();
+
+            /*try
             {
                 MessageBox.Show("You can find the admin client on the webserver:\n"
                 + ClientConnect.DownloadAdminClient(serverAddress, serverPort, Main.users.DocumentElement.FirstChild.InnerText)
@@ -161,10 +172,35 @@ namespace DVTA
             catch (System.Net.Sockets.SocketException socex)
             {
                 MessageBox.Show("Could not connect to the server!", "Error!");
+            }*/
+        }
+
+        private void btnBackupFiles_Click(object sender, EventArgs e)
+        {
+            Backup backup = new Backup();
+            backup.ShowDialog();
+        }
+
+        private void btnCheckLogs_Click(object sender, EventArgs e)
+        {
+            string instruction = "FIXME";
+
+            try
+            {
+                MessageBox.Show(ClientConnect.CheckLogs(serverAddress, serverPort, Main.clientHash, instruction));
+            }
+            catch (System.Net.Sockets.SocketException)
+            {
+                MessageBox.Show("Could not connect to the server!", "Error!");
             }
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
         {
 
         }

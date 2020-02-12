@@ -4,3 +4,8 @@ D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\obj\Release\ClientDataHandli
 D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\obj\Release\ClientDataHandling.csproj.CoreCompileInputs.cache
 D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\obj\Release\ClientDataHandling.dll
 D:\Workspace\DVTA CTF\DVTA CTF Client\ClientConnect\obj\Release\ClientDataHandling.pdb
+C:\Users\Istvan\Source\Repos\DVTAClient\ClientConnect\bin\Release\ClientDataHandling.dll
+C:\Users\Istvan\Source\Repos\DVTAClient\ClientConnect\bin\Release\ClientDataHandling.pdb
+C:\Users\Istvan\Source\Repos\DVTAClient\ClientConnect\obj\Release\ClientDataHandling.csprojAssemblyReference.cache
+C:\Users\Istvan\Source\Repos\DVTAClient\ClientConnect\obj\Release\ClientDataHandling.dll
+C:\Users\Istvan\Source\Repos\DVTAClient\ClientConnect\obj\Release\ClientDataHandling.pdb

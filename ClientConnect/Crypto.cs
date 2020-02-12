@@ -8,7 +8,6 @@ namespace ClientDataHandling
 {
     public class Crypto
     {
-
         // Creates a sha1 hash for a given password.
         public static string HashPassword(string password)
         {
@@ -25,6 +24,19 @@ namespace ClientDataHandling
 
                 return sb.ToString();
             }
+        }
+
+        // Basic repeating key XOR to decrypt the ftp password.
+        public static string DecryptPassword(string encryptedPassword, string key)
+        {
+            string password = string.Empty;
+
+            for (int i = 0; i < encryptedPassword.Length; i++)
+            {
+                password += encryptedPassword[i] ^ key[i % key.Length];
+            }
+
+            return password;
         }
     }
 }

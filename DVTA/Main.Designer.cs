@@ -38,7 +38,10 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnDlAdminClient = new System.Windows.Forms.Button();
+            this.btnTestDBConn = new System.Windows.Forms.Button();
+            this.AdminToolsLabel = new System.Windows.Forms.Label();
+            this.btnBackupFiles = new System.Windows.Forms.Button();
+            this.btnCheckLogs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +106,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(503, 114);
+            this.btnAdd.Location = new System.Drawing.Point(524, 78);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(186, 23);
             this.btnAdd.TabIndex = 3;
@@ -113,7 +116,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(503, 162);
+            this.btnEdit.Location = new System.Drawing.Point(524, 107);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(186, 23);
             this.btnEdit.TabIndex = 4;
@@ -123,7 +126,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(503, 215);
+            this.btnDelete.Location = new System.Drawing.Point(524, 138);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(186, 23);
             this.btnDelete.TabIndex = 5;
@@ -131,17 +134,53 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnDlAdminClient
+            // btnTestDBConn
             // 
-            this.btnDlAdminClient.Location = new System.Drawing.Point(503, 68);
-            this.btnDlAdminClient.Name = "btnDlAdminClient";
-            this.btnDlAdminClient.Size = new System.Drawing.Size(186, 23);
-            this.btnDlAdminClient.TabIndex = 9;
-            this.btnDlAdminClient.Text = "Download Admin Client";
-            this.btnDlAdminClient.UseVisualStyleBackColor = true;
-            this.btnDlAdminClient.Click += new System.EventHandler(this.btnDlAdminClient_Click);
-            this.btnDlAdminClient.Visible = false;
-            this.btnDlAdminClient.Enabled = false;
+            this.btnTestDBConn.Enabled = false;
+            this.btnTestDBConn.Location = new System.Drawing.Point(524, 218);
+            this.btnTestDBConn.Name = "btnTestDBConn";
+            this.btnTestDBConn.Size = new System.Drawing.Size(186, 23);
+            this.btnTestDBConn.TabIndex = 9;
+            this.btnTestDBConn.Text = "Test DB Connection";
+            this.btnTestDBConn.UseVisualStyleBackColor = true;
+            this.btnTestDBConn.Visible = false;
+            this.btnTestDBConn.Click += new System.EventHandler(this.btnTestDBConn_Click);
+            // 
+            // AdminToolsLabel
+            // 
+            this.AdminToolsLabel.AutoSize = true;
+            this.AdminToolsLabel.Enabled = false;
+            this.AdminToolsLabel.Location = new System.Drawing.Point(573, 184);
+            this.AdminToolsLabel.Name = "AdminToolsLabel";
+            this.AdminToolsLabel.Size = new System.Drawing.Size(96, 13);
+            this.AdminToolsLabel.TabIndex = 10;
+            this.AdminToolsLabel.Text = "Administrator Tools";
+            this.AdminToolsLabel.Visible = false;
+            this.AdminToolsLabel.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // btnBackupFiles
+            // 
+            this.btnBackupFiles.Enabled = false;
+            this.btnBackupFiles.Location = new System.Drawing.Point(524, 247);
+            this.btnBackupFiles.Name = "btnBackupFiles";
+            this.btnBackupFiles.Size = new System.Drawing.Size(186, 23);
+            this.btnBackupFiles.TabIndex = 11;
+            this.btnBackupFiles.Text = "Backup Files";
+            this.btnBackupFiles.UseVisualStyleBackColor = true;
+            this.btnBackupFiles.Visible = false;
+            this.btnBackupFiles.Click += new System.EventHandler(this.btnBackupFiles_Click);
+            // 
+            // btnCheckLogs
+            // 
+            this.btnCheckLogs.Enabled = false;
+            this.btnCheckLogs.Location = new System.Drawing.Point(524, 276);
+            this.btnCheckLogs.Name = "btnCheckLogs";
+            this.btnCheckLogs.Size = new System.Drawing.Size(186, 23);
+            this.btnCheckLogs.TabIndex = 12;
+            this.btnCheckLogs.Text = "Check Logs";
+            this.btnCheckLogs.UseVisualStyleBackColor = true;
+            this.btnCheckLogs.Visible = false;
+            this.btnCheckLogs.Click += new System.EventHandler(this.btnCheckLogs_Click);
             // 
             // Main
             // 
@@ -149,7 +188,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(758, 386);
-            this.Controls.Add(this.btnDlAdminClient);
+            this.Controls.Add(this.btnCheckLogs);
+            this.Controls.Add(this.btnBackupFiles);
+            this.Controls.Add(this.AdminToolsLabel);
+            this.Controls.Add(this.btnTestDBConn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnDelete);
@@ -180,7 +222,10 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnDlAdminClient;
+        private System.Windows.Forms.Button btnTestDBConn;
+        private System.Windows.Forms.Label AdminToolsLabel;
+        private System.Windows.Forms.Button btnBackupFiles;
+        private System.Windows.Forms.Button btnCheckLogs;
     }
 }
 

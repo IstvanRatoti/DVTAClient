@@ -25,3 +25,23 @@ D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\EntityFramework.dll
 D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\ExcelLibrary.dll
 D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\ClientDataHandling.pdb
 D:\Workspace\DVTA CTF\DVTA CTF Client\DVTA\bin\Debug\EntityFramework.xml
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA CTF Client.csprojAssemblyReference.cache
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA.addExpenses.resources
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA.Login.resources
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA.Register.resources
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA.Main.resources
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA.Properties.Resources.resources
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA CTF Client.csproj.GenerateResource.cache
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA CTF Client.exe
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA CTF Client.pdb
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\bin\Debug\DVTA CTF Client.exe.config
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\bin\Debug\DVTA CTF Client.exe
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\bin\Debug\DVTA CTF Client.pdb
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\bin\Debug\ClientDataHandling.dll
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\bin\Debug\EntityFramework.dll
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\bin\Debug\ExcelLibrary.dll
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\bin\Debug\ClientDataHandling.pdb
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\bin\Debug\EntityFramework.xml
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA CTF Client.csproj.CopyComplete
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA.TestDB.resources
+C:\Users\Istvan\Source\Repos\DVTAClient\DVTA\obj\Release\DVTA.Backup.resources

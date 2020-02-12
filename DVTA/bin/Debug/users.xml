@@ -1,11 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <data>
-  <clienthash>VeryComplexClientHash</clienthash>
+  <clientHash>ADMINHASH</clientHash>
   <users>
     <user>
       <id>0</id>
       <isAdmin>0</isAdmin>
       <username>testuser</username>
+      <hash>A94A8FE5CCB19BA61C4C0873D391E987982FBBD3</hash>
+    </user>
+    <user>
+      <id>1</id>
+      <isAdmin>1</isAdmin>
+      <username>testadmin</username>
       <hash>A94A8FE5CCB19BA61C4C0873D391E987982FBBD3</hash>
     </user>
   </users>

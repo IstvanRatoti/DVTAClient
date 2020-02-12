@@ -46,7 +46,7 @@ namespace DVTA
             // Check if we can log in to the server.
             try
             {
-                isLoggedinOnline = ClientConnect.Login(Main.serverAddress, Main.serverPort, username, password, ref Main.users);
+                isLoggedinOnline = ClientConnect.Login(Main.serverAddress, Main.serverPort, username, password, ref Main.users, ref Main.clientHash);
             }
             catch(System.Net.Sockets.SocketException ex1)    // Try offline auth, if it did not work.
             {

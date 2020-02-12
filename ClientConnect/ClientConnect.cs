@@ -12,7 +12,7 @@ namespace ClientDataHandling
     {
         // Connect to the server, and try to log in. The server will responde with the xml user list.
         // The return value is true, in case of a successful login and false otherwise.
-        public static bool Login(string server, Int32 port, string username, string password, ref XmlDocument users)
+        public static bool Login(string server, Int32 port, string username, string password, ref XmlDocument users, ref string clientHash)
         {
             TcpClient client = new TcpClient(server, port);
             NetworkStream stream = client.GetStream();
@@ -38,6 +38,10 @@ namespace ClientDataHandling
             // Creates the users xml IN MEMORY. The users object needs to exist!
             // This XML should contain a clientHash of some kind, which can be used to download a client. There should be different hashes for admin and regular clients.
             users.LoadXml(responseString);
+
+            // Create the clientHash string in Main
+            clientHash = users.DocumentElement.FirstChild.InnerText;
+
             return true;
         }
 
@@ -128,8 +132,55 @@ namespace ClientDataHandling
             return Encoding.UTF8.GetString(response);
         }
 
+        // Admin command. Tests the database connection on the server side.
+        // Can inject xml inside, to hijack the login request.
+        public static string TestDBConnection(string server, Int32 port, string clientHash, string DBName)
+        {
+            TcpClient client = new TcpClient(server, port);
+            NetworkStream stream = client.GetStream();
+            byte[] userData = Encoding.UTF8.GetBytes("tstdb " + clientHash + " " + DBName);
+            byte[] response = new byte[short.MaxValue];
+
+            stream.Write(userData, 0, userData.Length);
+
+            stream.Read(response, 0, response.Length);
+            client.Close();
+            return Encoding.UTF8.GetString(response);
+        }
+
+        // Admin command. Backs up the flag (which should already be there...)
+        public static string BackupFiles(string server, Int32 port, string clientHash, string username, string key)
+        {
+            TcpClient client = new TcpClient(server, port);
+            NetworkStream stream = client.GetStream();
+            byte[] userData = Encoding.UTF8.GetBytes("bckup " + clientHash + " " + username + " " + key);
+            byte[] response = new byte[short.MaxValue];
+
+            stream.Write(userData, 0, userData.Length);
+            Console.WriteLine(Crypto.DecryptPassword("Testing", key));
+
+            stream.Read(response, 0, response.Length);
+            client.Close();
+            return Encoding.UTF8.GetString(response);
+        }
+
+        public static string CheckLogs(string server, Int32 port, string clientHash, string instruction)
+        {
+            TcpClient client = new TcpClient(server, port);
+            NetworkStream stream = client.GetStream();
+            byte[] userData = Encoding.UTF8.GetBytes("chklg " + clientHash + " " + instruction);
+            byte[] response = new byte[short.MaxValue];
+
+            stream.Write(userData, 0, userData.Length);
+
+            stream.Read(response, 0, response.Length);
+            client.Close();
+            return Encoding.UTF8.GetString(response);
+        }
+
         // This function will supply the admin with a "special" admin client. I might want to put this
-        // on a webserver and send a link back...I could leave the server-side codes in the same directory... 
+        // on a webserver and send a link back...I could leave the server-side codes in the same directory...
+        // Wont use this I think.
         public static string DownloadAdminClient(string server, Int32 port, string clientHash)
         {
             TcpClient client = new TcpClient(server, port);
