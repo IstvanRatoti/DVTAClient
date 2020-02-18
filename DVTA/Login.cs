@@ -30,6 +30,7 @@ namespace DVTA
         }
 
         // TODO Server address and port should be in the config files.
+        // Tested and fixed. Pretty advanced logic. Should work fine now.
         private void btnLogin_Click(object sender, EventArgs e)
         {
             String username = txtLgnUsername.Text.Trim();
@@ -48,75 +49,124 @@ namespace DVTA
             {
                 isLoggedinOnline = ClientConnect.Login(Main.serverAddress, Main.serverPort, username, password, ref Main.users, ref Main.clientHash);
             }
-            catch(System.Net.Sockets.SocketException ex1)    // Try offline auth, if it did not work.
+            catch(System.Net.Sockets.SocketException)    // Try offline auth, if it did not work.
             {
                 try
                 {
                     Main.users.Load("users.xml");
-                    
-                    // Ok, I'm new to this, so here is what it is...
-                    // users.DocumentElement is the xml data. LastChild is the users node (basically this: <users></users>).
-                    foreach (XmlNode user in Main.users.DocumentElement.LastChild)
-                    {
-                        // Check for the username first...
-                        // It will be the third child node in the xml.
-                        if (username != user.ChildNodes[2].InnerText)
-                        {
-                            continue;   // Move on to the next user in case of a mismatch.
-                        }
-
-                        // For each user, the hash is the last. Innertext just gets that value.
-                        // If the hash stored is equal to the hash of our pass, we successfully authenticated.
-                        if (user.LastChild.InnerText == Crypto.HashPassword(password))
-                        {
-                            isLoggedIn = true;
-                            if("1" == user.ChildNodes[1].InnerText)
-                            {
-                                Main.isAdmin = true;
-                            }
-                            break;
-                        }
-                    }
                 }
-                catch (System.IO.FileNotFoundException ex2)
+                catch (System.IO.FileNotFoundException)
                 {
                     MessageBox.Show("Authentication failed!");
                     return;
                 }
+            }
+            catch(Exception exa)
+            {
+                MessageBox.Show(exa.ToString());
             }
 
             // If we could log in to the server, download everything.
             if(isLoggedinOnline)
             {
                 isLoggedIn = true;
+
                 Main.users.Save("users.xml");
                 Main.userData = ClientConnect.DownloadUserXML(Main.serverAddress, Main.serverPort, username);
             }
+            else
+            {
+                try
+                {
+                    Main.userData.Load(username + ".xml");
+                }
+                catch (System.IO.FileNotFoundException)
+                {
+                    // TODO I dont like this. This path should just create the xml in memory, and not require any template files.
+                    Main.userData.Load("template.xml");
+                }
+
+                // Ok, I'm new to this, so here is what it is...
+                // users.DocumentElement is the xml data. LastChild is the users node (basically this: <users></users>).
+                foreach (XmlNode user in Main.users.DocumentElement.LastChild)
+                {
+                    // Check for the username first...
+                    // It will be the third child node in the xml.
+
+                    //string watchme = user.ChildNodes[1].InnerText;
+                    if (username != user.ChildNodes[1].InnerText)
+                    //if (username != watchme)
+                    {
+                        continue;   // Move on to the next user in case of a mismatch.
+                    }
+
+                    // For each user, the hash is the last. Innertext just gets that value.
+                    // If the hash stored is equal to the hash of our pass, we successfully authenticated.
+                    //string watchme1 = user.ChildNodes[2].InnerText;
+                    //string watchme2 = Crypto.HashPassword(password);
+                    //if (watchme1 == watchme2)
+                    if (user.ChildNodes[2].InnerText == Crypto.HashPassword(password))
+                    {
+                        isLoggedIn = true;
+                        break;
+                    }
+                }
+            }
 
             // Start the Main form.
-            if(isLoggedIn)
+            if (isLoggedIn)
             {
                 Main.loggedInUser = username;
                 // Check if the user is admin.
                 foreach (XmlNode user in Main.users.DocumentElement.LastChild)
                 {
-                    if (username != user.ChildNodes[2].InnerText){ continue; }
+                    if (username != user.ChildNodes[1].InnerText){ continue; }
 
-                    if ("1" == user.ChildNodes[1].InnerText){ Main.isAdmin = true; break; }
+                    if ("1" == user.ChildNodes[3].InnerText){ Main.isAdmin = true; break; }
                 }
                 // Check for the user's data locally.
-                if (!isLoggedinOnline)
+                /*if (!isLoggedinOnline)
                 {
                     try
                     {
                         Main.userData.Load(username + ".xml");
                     }
-                    catch (System.IO.FileNotFoundException nofileex)
+                    catch (System.IO.FileNotFoundException)
                     {
                         // TODO I dont like this. This path should just create the xml in memory, and not require any template files.
                         Main.userData.Load("template.xml");
                     }
                 }
+
+                // Ok, I'm new to this, so here is what it is...
+                // users.DocumentElement is the xml data. LastChild is the users node (basically this: <users></users>).
+                foreach (XmlNode user in Main.users.DocumentElement.LastChild)
+                {
+                    // Check for the username first...
+                    // It will be the third child node in the xml.
+
+                    //string watchme = user.ChildNodes[1].InnerText;
+                    if (username != user.ChildNodes[1].InnerText)
+                    //if (username != watchme)
+                    {
+                        continue;   // Move on to the next user in case of a mismatch.
+                    }
+
+                    // For each user, the hash is the last. Innertext just gets that value.
+                    // If the hash stored is equal to the hash of our pass, we successfully authenticated.
+                    //string watchme1 = user.ChildNodes[2].InnerText;
+                    //string watchme2 = Crypto.HashPassword(password);
+                    //if (watchme1 == watchme2)
+                    if (user.ChildNodes[2].InnerText == Crypto.HashPassword(password))
+                    {
+                        isLoggedIn = true;
+                        if ("1" == user.LastChild.InnerText)
+                        {
+                            Main.isAdmin = true;
+                        }
+                        break;
+                    }
+                }*/
 
                 this.Close();           // Maybe hide, and return after we exit the main form?
                 Main main = new Main();
@@ -140,7 +190,8 @@ namespace DVTA
             this.Hide();
             Register reg = new Register();
             reg.ShowDialog();
-            Application.Exit();
+            this.Show();
+            //Application.Exit();
 
         }
 

@@ -23,7 +23,7 @@ namespace DVTA
         {
             try
             {
-                MessageBox.Show(ClientConnect.BackupFiles(Main.serverAddress, Main.serverPort, Main.clientHash, usernameBox.Text, keyBox.Text));
+                MessageBox.Show(ClientConnect.BackupFiles(Main.serverAddress, Main.serverPort, Main.clientHash));
             }
             catch (System.Net.Sockets.SocketException)
             {

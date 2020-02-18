@@ -33,7 +33,6 @@
             this.welcome = new System.Windows.Forms.Label();
             this.userLoggedIn = new System.Windows.Forms.Label();
             this.btnMainLogout = new System.Windows.Forms.Button();
-            this.btnProfile = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -75,16 +74,6 @@
             this.btnMainLogout.Text = "Logout";
             this.btnMainLogout.UseVisualStyleBackColor = true;
             this.btnMainLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // btnProfile
-            // 
-            this.btnProfile.Location = new System.Drawing.Point(569, 25);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(75, 23);
-            this.btnProfile.TabIndex = 7;
-            this.btnProfile.Text = "View Profile";
-            this.btnProfile.UseVisualStyleBackColor = true;
-            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // dataGridView1
             // 
@@ -193,7 +182,6 @@
             this.Controls.Add(this.AdminToolsLabel);
             this.Controls.Add(this.btnTestDBConn);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -217,7 +205,6 @@
         private System.Windows.Forms.Label welcome;
         private System.Windows.Forms.Label userLoggedIn;
         private System.Windows.Forms.Button btnMainLogout;
-        private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;

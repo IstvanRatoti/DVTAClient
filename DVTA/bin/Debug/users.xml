@@ -1,18 +1,59 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <data>
   <clientHash>ADMINHASH</clientHash>
   <users>
     <user>
       <id>0</id>
-      <isAdmin>0</isAdmin>
       <username>testuser</username>
-      <hash>A94A8FE5CCB19BA61C4C0873D391E987982FBBD3</hash>
+      <password>A94A8FE5CCB19BA61C4C0873D391E987982FBBD3</password>
+      <isadmin>0</isadmin>
     </user>
     <user>
       <id>1</id>
-      <isAdmin>1</isAdmin>
       <username>testadmin</username>
-      <hash>A94A8FE5CCB19BA61C4C0873D391E987982FBBD3</hash>
+      <password>A94A8FE5CCB19BA61C4C0873D391E987982FBBD3</password>
+      <isadmin>1</isadmin>
+    </user>
+    <user>
+      <id>2</id>
+      <username>newguy</username>
+      <password>A94A8FE5CCB19BA61C4C0873D391E987982FBBD3</password>
+      <isadmin>0</isadmin>
+    </user>
+    <user>
+      <id>3</id>
+      <username>hacker</username>
+      <password>4DCC4173D80A2817206E196A38F0DBF7850188FF</password>
+      <isadmin>0</isadmin>
+    </user>
+    <user>
+      <id>4</id>
+      <username>asd</username>
+      <password>F10E2821BBBEA527EA02200352313BC059445190</password>
+      <isadmin>0</isadmin>
+    </user>
+    <user>
+      <id>5</id>
+      <username>ad</username>
+      <password>4AEB195CD69ED93520B9B4129636264E0CDC0153</password>
+      <isadmin>0</isadmin>
+    </user>
+    <user>
+      <id>6</id>
+      <username>af</username>
+      <password>D1E622507595486EE06DB24B1DEBF11064EDD2BA</password>
+      <isadmin>0</isadmin>
+    </user>
+    <user>
+      <id>7</id>
+      <username>ag</username>
+      <password>7EDD1DD232A61B147151D657B4AD5080896F8F0D</password>
+      <isadmin>0</isadmin>
+    </user>
+    <user>
+      <id>8</id>
+      <username>ada</username>
+      <password>E4EA294C062C525643DF036A35CA579B905FA400</password>
+      <isadmin>0</isadmin>
     </user>
   </users>
 </data>

@@ -1,15 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<data>
+<DocumentElement>
   <item>
-    <name>Footwear</name>
-    <price>32</price>
-    <date>Wednesday, May 8, 2019</date>
-    <time>8:46:25 PM</time>
+    <name>aaa</name>
+    <price>123</price>
+    <date>18 February 2020</date>
+    <time>11:43:42</time>
   </item>
-  <item>
-    <name>Travelling</name>
-    <price>2</price>
-    <date>Wednesday, May 8, 2019</date>
-    <time>8:46:34 PM</time>
-  </item>
-</data>
+</DocumentElement>

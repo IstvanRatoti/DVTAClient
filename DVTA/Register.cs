@@ -61,8 +61,23 @@ namespace DVTA
                     return;
                 }
                 else
-                {   // TODO server address and IP from config.
-                    if (ClientConnect.Register(Main.serverAddress, Main.serverPort, username, password, email))
+                {
+                    try
+                    {
+                        string responseString = ClientConnect.Register(Main.serverAddress, Main.serverPort, username, password, email);
+                        responseString = responseString.Trim('\0').Trim('\n');
+
+                        MessageBox.Show(responseString);
+                        this.Close();
+                    }
+                    catch (System.Net.Sockets.SocketException)
+                    {
+                        MessageBox.Show("Could not connect to the server!");
+                        return;
+                    }
+
+                       //Old code
+                    /*if (ClientConnect.Register(Main.serverAddress, Main.serverPort, username, password, email))
                     {
                         txtRegUsername.Text = "";
                         txtRegPass.Text = "";
@@ -73,7 +88,7 @@ namespace DVTA
                     else
                     {
                         MessageBox.Show("Registration Failed!");
-                    }
+                    }*/
                 }
                
             }

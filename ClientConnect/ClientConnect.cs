@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -12,12 +13,13 @@ namespace ClientDataHandling
     {
         // Connect to the server, and try to log in. The server will responde with the xml user list.
         // The return value is true, in case of a successful login and false otherwise.
+        // Tested and fixed. Should be working fine now.
         public static bool Login(string server, Int32 port, string username, string password, ref XmlDocument users, ref string clientHash)
         {
             TcpClient client = new TcpClient(server, port);
             NetworkStream stream = client.GetStream();
             byte[] creds = Encoding.UTF8.GetBytes("login " + username + " " + password);
-            byte[] response = new byte[65535];
+            byte[] response = new byte[short.MaxValue];
             string responseString;
 
             // Send creds to the server.
@@ -27,9 +29,10 @@ namespace ClientDataHandling
             stream.Read(response, 0, response.Length);
             client.Close();
             responseString = Encoding.UTF8.GetString(response);
+            responseString = responseString.Trim('\0').Trim('\n');
 
             // Login Failed.
-            if (responseString == "InvalidCredentials" || responseString == "UnknownCommand")
+            if (responseString == "InvalidCredentials" || responseString == "WrongArgCount")
             {
                 users = null;
                 return false;
@@ -46,12 +49,12 @@ namespace ClientDataHandling
         }
 
         // Register a new user. Return true on success, false otherwise.
-        public static bool Register(string server, Int32 port, string username, string password, string email)
+        public static string Register(string server, Int32 port, string username, string password, string email)
         {
             TcpClient client = new TcpClient(server, port);
             NetworkStream stream = client.GetStream();
             byte[] userData = Encoding.UTF8.GetBytes("regis " + username + " " + password + " " + email);
-            byte[] response = new byte[256];
+            byte[] response = new byte[short.MaxValue];
             string responseString;
 
             // Send new user's data.
@@ -61,15 +64,16 @@ namespace ClientDataHandling
             stream.Read(response, 0, response.Length);
             client.Close();
             responseString = Encoding.UTF8.GetString(response);
+            responseString = responseString.Trim('\0').Trim('\n');
 
             // Catch success.
-            if ("Success" == responseString)
+            /*if (responseString.Contains("Success"))
             {
-                return true;
-            }
+                return responseString;
+            }*/
 
             // In any other case, assume failure.
-            return false;
+            return responseString;
         }
 
         // Downloads a user's XML file, containing expenses and email address. Returns the XML document.
@@ -78,7 +82,7 @@ namespace ClientDataHandling
             TcpClient client = new TcpClient(server, port);
             NetworkStream stream = client.GetStream();
             byte[] userData = Encoding.UTF8.GetBytes("dlxml " + username);
-            byte[] response = new byte[256];
+            byte[] response = new byte[short.MaxValue];
             string responseString;
 
             // Send the username whose XML we want.
@@ -88,6 +92,9 @@ namespace ClientDataHandling
             stream.Read(response, 0, response.Length);
             client.Close();
             responseString = Encoding.UTF8.GetString(response);
+            responseString = responseString.Trim('\0').Trim('\n');
+            //responseString = responseString.Replace(System.Environment.NewLine, "");
+            //responseString = Regex.Replace(responseString, @"\s+", "");
 
             // On fail, return a null.
             if (responseString == "UnknownUser" || responseString == "UnknownCommand")
@@ -116,6 +123,7 @@ namespace ClientDataHandling
 
         // Sends a username and then the server sends back the associated email address.
         // The email address should only be available from the server (not in any client side XML).
+        // Removing this. Don't know what to use it for...
         public static string ViewProfile(string server, Int32 port, string username)
         {
             TcpClient client = new TcpClient(server, port);
@@ -149,15 +157,15 @@ namespace ClientDataHandling
         }
 
         // Admin command. Backs up the flag (which should already be there...)
-        public static string BackupFiles(string server, Int32 port, string clientHash, string username, string key)
+        public static string BackupFiles(string server, Int32 port, string clientHash)
         {
             TcpClient client = new TcpClient(server, port);
             NetworkStream stream = client.GetStream();
-            byte[] userData = Encoding.UTF8.GetBytes("bckup " + clientHash + " " + username + " " + key);
+            byte[] userData = Encoding.UTF8.GetBytes("bckup " + clientHash);
             byte[] response = new byte[short.MaxValue];
 
             stream.Write(userData, 0, userData.Length);
-            Console.WriteLine(Crypto.DecryptPassword("Testing", key));
+            //Console.WriteLine(Crypto.DecryptPassword("Testing", key));
 
             stream.Read(response, 0, response.Length);
             client.Close();

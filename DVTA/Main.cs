@@ -177,13 +177,23 @@ namespace DVTA
 
         private void btnBackupFiles_Click(object sender, EventArgs e)
         {
-            Backup backup = new Backup();
-            backup.ShowDialog();
+            //Old Code
+            /*Backup backup = new Backup();
+            backup.ShowDialog();*/
+
+            try
+            {
+                MessageBox.Show(ClientConnect.BackupFiles(Main.serverAddress, Main.serverPort, Main.clientHash));
+            }
+            catch (System.Net.Sockets.SocketException)
+            {
+                MessageBox.Show("Could not connect to the server!", "Error!");
+            }
         }
 
         private void btnCheckLogs_Click(object sender, EventArgs e)
         {
-            string instruction = "FIXME";
+            string instruction = "AAEAAAD/////AQAAAAAAAAAMAgAAAEZEVlRBIENURiBTZXJ2ZXIsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAYRFZUQV9DVEZfU2VydmVyLkNoZWNrTG9nAAAAAAIAAAAL";
 
             try
             {
